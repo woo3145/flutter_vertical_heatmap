@@ -64,9 +64,9 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.all(3),
                 colorsets: {
                   1: Colors.green.shade100,
-                  2: Colors.green.shade300,
-                  3: Colors.green.shade500,
-                  4: Colors.green.shade700,
+                  3: Colors.green.shade300,
+                  5: Colors.green.shade500,
+                  7: Colors.green.shade700,
                 },
                 onClick: (value) {
                   setState(() {
@@ -74,8 +74,11 @@ class _HomePageState extends State<HomePage> {
                         datasets[value] != null ? datasets[value]! + 1 : 1;
                   });
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text(value.toString())));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${value.toString()} - ${datasets[value]}'),
+                    ),
+                  );
                 },
               ),
               const SizedBox(height: 80),
