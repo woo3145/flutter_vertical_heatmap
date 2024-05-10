@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_vertical_heatmap/flutter_vertical_heatmap.dart';
+import 'package:flutter_vertical_heatmap/src/heatmap_color_tip.dart';
 import 'package:flutter_vertical_heatmap/src/heatmap_week_text.dart';
 import 'package:flutter_vertical_heatmap/src/heatmap_row.dart';
 
@@ -22,6 +23,9 @@ class HeatMap extends StatelessWidget {
   /// The font size of the text labels.
   final double? fontSize;
 
+  /// The font size of the color tip.
+  final double? colorTipSize;
+
   /// A map of data points, where each key is a date and each value is the value of the data point.
   final Map<DateTime, int>? datasets;
 
@@ -35,7 +39,7 @@ class HeatMap extends StatelessWidget {
   final Color? textColor;
 
   /// A map of color sets, where each key is a day of the week and each value is a list of colors.
-  final Map<int, Color>? colorsets;
+  final Map<int, Color> colorsets;
 
   /// The border radius of the heatmap cells.
   final double? borderRadius;
@@ -53,12 +57,13 @@ class HeatMap extends StatelessWidget {
     super.key,
     required this.startDate,
     required this.endDate,
+    required this.colorsets,
     this.size,
     this.fontSize,
+    this.colorTipSize,
     this.datasets,
     this.defaultColor,
     this.textColor,
-    this.colorsets,
     this.borderRadius,
     this.onClick,
     this.margin,
@@ -103,8 +108,13 @@ class HeatMap extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                HeatMapColorTip(
+                  colorsets: colorsets,
+                  size: size,
+                ),
+                const SizedBox(height: 10),
                 HeatMapWeekText(
                   margin: margin,
                   fontSize: fontSize,
