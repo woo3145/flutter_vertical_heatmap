@@ -1,7 +1,7 @@
 name: flutter_vertical_heatmap
 description: '🐙 A vertical heatmap chart package for Flutter, offering beautifully crafted UI with ultimate flexibility!'
 version: 1.0.0
-homepage:
+homepage: https://github.com/woo3145/flutter_vertical_heatmap
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
