@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                 weekLabel: HeatMapDefault.weekLabel,
                 datasets: datasets,
                 size: 32,
+                colorTipSize: 20,
                 margin: const EdgeInsets.all(3),
                 colorsets: {
                   1: Colors.green.shade100,
