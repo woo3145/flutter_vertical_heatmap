@@ -18,7 +18,7 @@ Add below line to your personal package's `pubspec.yaml`.
 
 ```yaml
 dependencies:
-  flutter_vertical_heatmap: ^1.0.0
+  flutter_vertical_heatmap: ^1.0.1
 ```
 
 And run `flutter pub get` to install.
@@ -79,6 +79,7 @@ class _HomePageState extends State<HomePage> {
                   5: Colors.green.shade500,
                   7: Colors.green.shade700,
                 },
+                colorTipLabel: const ["0~2", "2~4", "4~6", "6~8"],
                 onClick: (value) {
                   setState(() {
                     datasets[value] =
