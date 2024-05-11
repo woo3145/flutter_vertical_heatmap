@@ -18,7 +18,7 @@ Add below line to your personal package's `pubspec.yaml`.
 
 ```yaml
 dependencies:
-  flutter_vertical_heatmap: ^1.0.1
+  flutter_vertical_heatmap: ^1.0.2
 ```
 
 And run `flutter pub get` to install.
