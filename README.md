@@ -2,7 +2,7 @@
 
 🐙 A vertical heatmap chart package for Flutter, offering beautifully crafted UI with ultimate flexibility!
 
-![heatmap](https://github.com/woo3145/flutter_vertical_heatmap/assets/100907484/27755a7e-bdf0-4732-864f-d26aacd6dab9)
+![heatmap](https://github.com/woo3145/flutter_vertical_heatmap/assets/100907484/c347d1e8-5051-4b7a-8c1b-70843e5a9df7)
 
 ## Getting started
 
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                   5: Colors.green.shade500,
                   7: Colors.green.shade700,
                 },
-                colorTipLabel: const ["0~2", "2~4", "4~6", "6~8"],
+                colorTipLabel: const ["0~3", "3~5", "5~7", "7+"],
                 onClick: (value) {
                   setState(() {
                     datasets[value] =

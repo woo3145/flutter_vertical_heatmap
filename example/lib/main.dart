@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   5: Colors.green.shade500,
                   7: Colors.green.shade700,
                 },
-                colorTipLabel: const ["0~2", "2~4", "4~6", "6~8"],
+                colorTipLabel: const ["1~3", "3~5", "5~7", "7+"],
                 onClick: (value) {
                   setState(() {
                     datasets[value] =
