@@ -15,12 +15,16 @@ class HeatMapWeekText extends StatelessWidget {
   /// The color of the text labels.
   final Color? fontColor;
 
+  /// A list of week labels.
+  final List<String>? weekLabel;
+
   const HeatMapWeekText({
     super.key,
     this.margin,
     this.fontSize,
     this.size,
     this.fontColor,
+    this.weekLabel = HeatMapDefault.weekLabel,
   });
 
   @override
@@ -30,7 +34,7 @@ class HeatMapWeekText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SizedBox(width: size ?? 40),
-        for (String label in HeatMapDefault.weekLabel)
+        for (String label in weekLabel ?? HeatMapDefault.weekLabel)
           Container(
             margin: margin ?? const EdgeInsets.all(2),
             width: size ?? 40,
@@ -39,9 +43,15 @@ class HeatMapWeekText extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: fontSize ?? 12,
-                color: label == HeatMapDefault.weekLabel[0]
+                color: label ==
+                        (weekLabel != null
+                            ? weekLabel![0]
+                            : HeatMapDefault.weekLabel[0])
                     ? Colors.red
-                    : label == HeatMapDefault.weekLabel[6]
+                    : label ==
+                            (weekLabel != null
+                                ? weekLabel![6]
+                                : HeatMapDefault.weekLabel[6])
                         ? Colors.blue
                         : fontColor,
               ),
