@@ -11,16 +11,19 @@ class HeatMapColorTip extends StatelessWidget {
   /// The size of the color tip.
   final double? colorTipSize;
 
+  /// A list of color tip labels.
+  final List<String>? colorTipLabel;
+
   const HeatMapColorTip({
     super.key,
     required this.colorsets,
     this.size,
     this.colorTipSize,
+    this.colorTipLabel,
   });
 
   @override
   Widget build(BuildContext context) {
-    var keys = colorsets.keys.toList();
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -37,10 +40,15 @@ class HeatMapColorTip extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
-                Text(
-                  '${0 < idx ? keys[idx - 1] : 0}~${data.key}',
-                  style: const TextStyle(fontSize: 10),
-                )
+                colorTipLabel != null && idx < colorTipLabel!.length
+                    ? SizedBox(
+                        height: 16,
+                        child: Text(
+                          colorTipLabel![idx],
+                          style: const TextStyle(fontSize: 10),
+                        ),
+                      )
+                    : const SizedBox(height: 16)
               ],
             ),
           ),

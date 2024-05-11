@@ -53,6 +53,9 @@ class HeatMap extends StatelessWidget {
   /// A list of week labels.
   final List<String>? weekLabel;
 
+  /// A list of color tip labels.
+  final List<String>? colorTipLabel;
+
   HeatMap({
     super.key,
     required this.startDate,
@@ -69,6 +72,7 @@ class HeatMap extends StatelessWidget {
     this.margin,
     this.monthLabel = HeatMapDefault.monthLabel,
     this.weekLabel = HeatMapDefault.weekLabel,
+    this.colorTipLabel,
   }) : _dateDifferent = endDate.difference(startDate).inDays;
 
   /// A list of HeatMapRow widgets.
@@ -113,6 +117,7 @@ class HeatMap extends StatelessWidget {
                 HeatMapColorTip(
                   colorsets: colorsets,
                   size: size,
+                  colorTipLabel: colorTipLabel,
                 ),
                 const SizedBox(height: 10),
                 HeatMapWeekText(
