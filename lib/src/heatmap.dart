@@ -70,8 +70,8 @@ class HeatMap extends StatelessWidget {
     this.borderRadius,
     this.onClick,
     this.margin,
-    this.monthLabel = HeatMapDefault.monthLabel,
-    this.weekLabel = HeatMapDefault.weekLabel,
+    this.monthLabel,
+    this.weekLabel,
     this.colorTipLabel,
   }) : _dateDifferent = endDate.difference(startDate).inDays;
 
@@ -96,7 +96,9 @@ class HeatMap extends StatelessWidget {
         onTap: onClick,
         datasets: datasets,
         monthText: lastDayOfWeek.day < 8
-            ? HeatMapDefault.monthLabel[lastDayOfWeek.month - 1]
+            ? monthLabel != null
+                ? monthLabel![lastDayOfWeek.month - 1]
+                : HeatMapDefault.monthLabel[lastDayOfWeek.month - 1]
             : "",
       ));
     }
@@ -125,6 +127,7 @@ class HeatMap extends StatelessWidget {
                   fontSize: fontSize,
                   size: size,
                   fontColor: textColor,
+                  weekLabel: weekLabel,
                 ),
                 const SizedBox(height: 10),
                 Column(
