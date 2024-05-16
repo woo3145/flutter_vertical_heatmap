@@ -50,8 +50,8 @@ class HeatMapCell extends StatelessWidget {
             color: backgroundColor ?? HeatMapDefault.surfaceColor,
             borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 5)),
           ),
-          width: size,
-          height: size,
+          width: size ?? 40,
+          height: size ?? 40,
           alignment: Alignment.center,
           child: Container(
             decoration: BoxDecoration(
