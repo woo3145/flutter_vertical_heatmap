@@ -4,8 +4,7 @@ import 'package:flutter_vertical_heatmap/src/heatmap_color_tip.dart';
 
 void main() {
   group('HeatMapColorTip', () {
-    testWidgets('displays the correct number of color tips',
-        (WidgetTester tester) async {
+    testWidgets('does not render color tips when colorTipSize is null', (WidgetTester tester) async {
       final colorsets = {1: Colors.red, 2: Colors.green, 3: Colors.blue};
 
       await tester.pumpWidget(
@@ -13,6 +12,48 @@ void main() {
           home: Scaffold(
             body: HeatMapColorTip(
               colorsets: colorsets,
+              colorTipSize: null,
+            ),
+          ),
+        ),
+      );
+
+      // Verify that no color tips are rendered
+      final colorTips = find.byType(Container);
+      expect(colorTips, findsNothing);
+    });
+
+    testWidgets('renders color tips when colorTipSize is provided', (WidgetTester tester) async {
+      final colorsets = {1: Colors.red, 2: Colors.green, 3: Colors.blue};
+      const colorTipSize = 20.0;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: HeatMapColorTip(
+              colorsets: colorsets,
+              colorTipSize: colorTipSize,
+            ),
+          ),
+        ),
+      );
+
+      // Verify that the correct number of color tips are rendered
+      final colorTips = find.byType(Container);
+      expect(colorTips, findsNWidgets(colorsets.length));
+    });
+
+    testWidgets('displays the correct number of color tips',
+        (WidgetTester tester) async {
+      final colorsets = {1: Colors.red, 2: Colors.green, 3: Colors.blue};
+      const colorTipSize = 30.0;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: HeatMapColorTip(
+              colorsets: colorsets,
+              colorTipSize: colorTipSize,
             ),
           ),
         ),
@@ -27,6 +68,7 @@ void main() {
         (WidgetTester tester) async {
       final colorsets = {1: Colors.red, 2: Colors.green, 3: Colors.blue};
       final colorTipLabels = ['Low', 'Medium', 'High'];
+      const colorTipSize = 30.0;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -34,6 +76,7 @@ void main() {
             body: HeatMapColorTip(
               colorsets: colorsets,
               colorTipLabel: colorTipLabels,
+              colorTipSize: colorTipSize,
             ),
           ),
         ),
@@ -73,6 +116,7 @@ void main() {
         (WidgetTester tester) async {
       final colorsets = {1: Colors.red, 2: Colors.green, 3: Colors.blue};
       const size = 50.0;
+      const colorTipSize = 30.0;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -80,6 +124,7 @@ void main() {
             body: HeatMapColorTip(
               colorsets: colorsets,
               size: size,
+              colorTipSize: colorTipSize,
             ),
           ),
         ),
