@@ -119,6 +119,7 @@ class HeatMap extends StatelessWidget {
                 HeatMapColorTip(
                   colorsets: colorsets,
                   size: size,
+                  colorTipSize: colorTipSize,
                   colorTipLabel: colorTipLabel,
                 ),
                 const SizedBox(height: 10),
