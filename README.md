@@ -18,7 +18,7 @@ Add below line to your personal package's `pubspec.yaml`.
 
 ```yaml
 dependencies:
-  flutter_vertical_heatmap: ^1.0.2
+  flutter_vertical_heatmap: ^1.0.3
 ```
 
 And run `flutter pub get` to install.
@@ -72,6 +72,8 @@ class _HomePageState extends State<HomePage> {
                 weekLabel: HeatMapDefault.weekLabel,
                 datasets: datasets,
                 size: 32,
+                // If you do not want to use a color tip, leave colorTipSize blank or pass null.
+                colorTipSize: 20, 
                 margin: const EdgeInsets.all(3),
                 colorsets: {
                   1: Colors.green.shade100,
