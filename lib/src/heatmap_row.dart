@@ -80,10 +80,9 @@ class HeatMapRow extends StatelessWidget {
     List<Widget> emptySpaces = numDays != 7
         ? List.generate(
             7 - numDays,
-            (i) => Container(
-              margin: margin ?? const EdgeInsets.all(2),
-              width: size ?? 40,
-              height: size ?? 40,
+            (i) => HeatMapEmptySpace(
+              size: size,
+              margin: margin,
             ),
           )
         : [];
@@ -99,6 +98,25 @@ class HeatMapRow extends StatelessWidget {
         ...emptySpaces,
         SizedBox(width: size ?? 40),
       ],
+    );
+  }
+}
+
+class HeatMapEmptySpace extends StatelessWidget {
+  /// The size of the heatmap cells.
+  final double? size;
+
+  /// The margin of the heatmap cells.
+  final EdgeInsets? margin;
+
+  const HeatMapEmptySpace({super.key, this.size, this.margin});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: margin ?? const EdgeInsets.all(2),
+      width: size ?? 40,
+      height: size ?? 40,
     );
   }
 }

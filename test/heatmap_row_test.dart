@@ -9,7 +9,7 @@ void main() {
         (WidgetTester tester) async {
       final startDate = DateTime(2024, 1, 1);
       const numDays = 7;
-      
+
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -68,14 +68,7 @@ void main() {
       expect(totalCells, findsNWidgets(numDays));
 
       // Verify that the correct number of empty spaces are rendered
-      final emptySpaces = find.descendant(
-        of: find.byType(HeatMapRow),
-        matching: find.byWidgetPredicate((widget) {
-          return widget is Container &&
-              widget.constraints?.maxWidth == 40 &&
-              widget.constraints?.maxHeight == 40;
-        }),
-      );
+      final emptySpaces = find.byType(HeatMapEmptySpace);
       expect(emptySpaces, findsNWidgets(7 - numDays));
     });
   });
