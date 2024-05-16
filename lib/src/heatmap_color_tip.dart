@@ -24,6 +24,10 @@ class HeatMapColorTip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (colorTipSize == null) {
+      return const SizedBox.shrink();
+    }
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -33,8 +37,8 @@ class HeatMapColorTip extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  width: colorTipSize ?? 20,
-                  height: colorTipSize ?? 20,
+                  width: colorTipSize,
+                  height: colorTipSize,
                   decoration: BoxDecoration(
                     color: data.value,
                     borderRadius: BorderRadius.circular(4),
