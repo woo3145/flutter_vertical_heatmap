@@ -9,9 +9,6 @@ class HeatMapCell extends StatelessWidget {
   /// The size of the cell.
   final double? size;
 
-  /// The font size of the text labels.
-  final double? fontSize;
-
   /// The border radius of the cell.
   final double? borderRadius;
 
@@ -32,7 +29,6 @@ class HeatMapCell extends StatelessWidget {
     required this.date,
     this.margin,
     this.size,
-    this.fontSize,
     this.borderRadius,
     this.backgroundColor,
     this.selectedColor,
