@@ -53,7 +53,7 @@ class HeatMapColorTip extends StatelessWidget {
             ),
           ),
         SizedBox(
-          width: size != null ? size! : 40 - 4,
+          width: size != null ? size! : 40,
         )
       ],
     );
